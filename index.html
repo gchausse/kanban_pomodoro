@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Titre de la page</title>
         <link rel="stylesheet" href="./static/external/bootstrap/dist/css/bootstrap.min.css">
+
         <link rel="stylesheet" href="./static/css/style.css">
     </head>
     <body>
@@ -25,7 +26,7 @@
                 <div class="col-sm-4">
                     <h2 class="arrow_box">a faire</h2>
                     <section id="todo">
-                        <ul class="todotasks">
+                        <ul id="todotasks">
                             <li class="task">tache 3<i class="glyphicon glyphicon-remove-circle removetask"></i></li>
                             <li class="task">tache 4<i class="glyphicon glyphicon-remove-circle removetask"></i></li>
                             <li class="task">tache 5<i class="glyphicon glyphicon-remove-circle removetask"></i></li>
@@ -38,12 +39,13 @@
                         <div id="timer"></div>
                         <button id="start">début</button>
                         <button id="pause">pause</button>
+                        <ul id="doingtasks"></ul>
                     </section>
                 </div>
                 <div class="col-sm-4">
                     <span class="footpath:after"><h2 class="arrow_box">fait</h2>
                     <section id="done">
-                        <ul class="donetasks">
+                        <ul id="donetasks">
                             <li class="task">tache 1</li>
                             <li class="task">tache 2</li>
                             <li class="task">tache 6</li>
@@ -52,13 +54,35 @@
                 </div>
             </div>
         </div>
-        <script src="./static/external/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./static/external/jquery/dist/jquery.min.js"></script>
+        <script src="./static/external/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./static/external/js/script.js"></script>
         <script>
-            $(document).ready(function(){
-                
-            });
+        $(document).ready(function() {
+            $(".task").remove();
+
+            $("#add").click(function(){
+                var texttaper = $("#newtask").val();
+                $('<li class="task"></li>').appendTo($("#todotasks")).html(texttaper).append('<i class="glyphicon glyphicon-remove-circle removetask"></i>');
+                $("i").click(function(){
+                    $(this).parent().remove();
+                })
+                $("li").click(function(){
+                    $(".selected").removeClass("selected");
+                    $(this).addClass("selected");
+                });
+                $("#start").click(function(){
+                    console.log($('#doingtasks li'));
+                    if($('#doingtasks li').length < 1){
+                        $("<li></li>").appendTo($('#doingtasks')).html($(".selected").html());
+                    }
+                })
+
+
+            })
+        });
+
+
         </script>
     </body>
 </html>

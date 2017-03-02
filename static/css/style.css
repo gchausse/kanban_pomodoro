@@ -92,3 +92,6 @@ input, button {
 .arrow_box {
     border: 2px solid black;
 }
+.selected {
+    background-color: #e6e6e6;
+}
