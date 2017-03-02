@@ -3,7 +3,7 @@ h1, h2 {
     text-transform: capitalize;
     margin: 0;
 }
-input {
+#newtask {
     width: 100%;
     text-transform: capitalize;
 }
@@ -18,7 +18,38 @@ h2, section {
     border: 1px solid black;
     text-align: center;
 }
+.footpath {
+  background: white;
+  color: black;
+  line-height:1.2;
+  //border: thin solid #000000;
+  width: 100%;
 
+  /* added */
+  display: inline-block;
+  position: relative;
+  margin-right: .65em;
+  /* make some space for the pointy bit */
+  -webkit-filter:drop-shadow(1px 1px 1px black);
+}
+.footpath:after {
+  content:"";
+  position: absolute;
+  top:0;
+  left:100%;
+  width:0;
+  height:0;
+  border-top-color:transparent;
+  border-right-color:transparent;
+  border-bottom-color:transparent;
+  border-left-color:green;
+  /* the opposite of the pointing direction */
+  border-top-width:.6rem;
+  border-right-width:.6rem;
+  border-bottom-width:.6rem;
+  border-left-width:.6rem;
+  border-style:solid;
+}
 
 .col-sm-4, .col-sm-8 {
     padding: 0;
@@ -33,7 +64,7 @@ section {
 
 }
 
-span{
+#todo .task{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -41,22 +72,22 @@ span{
     min-height: 4em;
 }
 
-#encours button {
+#start, #pause {
     text-transform: capitalize;
     margin-top: 2em;
     min-width: 60%;
     align-self: center;
     min-height: 3em;
 }
-p{
+.task{
     margin: 0;
 }
 
-#done p{
+#done .task{
     min-height: 4em;
     line-height: 4em;
 }
-#encours div{
+#doing #timer{
     max-width: 80%;
     min-width: 80%;
     min-height: 5em;
@@ -66,10 +97,10 @@ p{
     margin-top: 3em;
 }
 
-#done p:first-child{
+section .task:first-child{
     margin-top: 3em;
 }
 
-section span:first-child{
-    margin-top: 3em;
+li {
+    list-style: none;
 }

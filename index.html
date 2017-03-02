@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-8">
-                    <input type="text" placeholder="nouvelle tâche"></input>
+                    <input type="text" placeholder="nouvelle tâche" id="newtask"></input>
                 </div>
                 <div class="col-sm-4">
                     <button id="add">ajouter</button>
@@ -23,33 +23,31 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <h2>a faire</h2>
-                    <section>
-                        <span>
-                            <p>tache 3</p><i class="glyphicon glyphicon-remove-circle"></i>
-                        </span>
-                        <span>
-                        <p>tache 4</p><i class="glyphicon glyphicon-remove-circle"></i>
-                        </span>
-                        <span>
-                        <p>tache 5</p><i class="glyphicon glyphicon-remove-circle"></i>
-                        </span>
+                    <span class="footpath"><h2>a faire</h2></span>
+                    <section id="todo">
+                        <ul class="todotasks">
+                            <li class="task">tache 3<i class="glyphicon glyphicon-remove-circle removetask"></i></li>
+                            <li class="task">tache 4<i class="glyphicon glyphicon-remove-circle removetask"></i></li>
+                            <li class="task">tache 5<i class="glyphicon glyphicon-remove-circle removetask"></i></li>
+                        </ul>
                     </section>
                 </div>
                 <div class="col-sm-4">
                     <h2>en cours</h2>
-                    <section id="encours">
-                        <div></div>
-                        <button>début</button>
-                        <button>pause</button>
+                    <section id="doing">
+                        <div id="timer"></div>
+                        <button id="start">début</button>
+                        <button id="pause">pause</button>
                     </section>
                 </div>
                 <div class="col-sm-4">
                     <h2>fait</h2>
                     <section id="done">
-                        <p>tache 1</p>
-                        <p>tache 2</p>
-                        <p>tache 6</p>
+                        <ul class="donetasks">
+                            <li class="task">tache 1</li>
+                            <li class="task">tache 2</li>
+                            <li class="task">tache 6</li>
+                        </ul>
                     </section>
                 </div>
             </div>
