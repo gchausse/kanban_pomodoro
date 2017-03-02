@@ -25,38 +25,6 @@ section {
     border: 1px solid black;
     text-align: center;
 }
-.footpath {
-  background: white;
-  color: black;
-  line-height:1.2;
-  //border: thin solid #000000;
-  width: 100%;
-
-  /* added */
-  display: inline-block;
-  position: relative;
-  margin-right: .65em;
-  /* make some space for the pointy bit */
-  -webkit-filter:drop-shadow(1px 1px 1px black);
-}
-.footpath:after {
-  content:"";
-  position: absolute;
-  top:0;
-  left:100%;
-  width:0;
-  height:0;
-  border-top-color:transparent;
-  border-right-color:transparent;
-  border-bottom-color:transparent;
-  border-left-color:black;
-  /* the opposite of the pointing direction */
-  border-top-width:1.6rem;
-  border-right-width:2.6rem;
-  border-bottom-width:1.6rem;
-  border-left-width:1.6rem;
-  border-style:solid;
-}
 
 .col-sm-4, .col-sm-8 {
     padding: 0;
@@ -110,4 +78,17 @@ section .task:first-child{
 
 li {
     list-style: none;
+}
+ .task:active {
+    background-color: #e6e6e6;
+ }
+
+input, button {
+    background-color: #e6e6e6;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.arrow_box {
+    border: 2px solid black;
 }
