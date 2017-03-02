@@ -13,8 +13,15 @@ h1, h2 {
     text-transform: capitalize;
     margin: 0;
 }
+#premiertitre{
+    border-left: 2px solid black;
+}
+h2 {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
 
-h2, section {
+section {
     border: 1px solid black;
     text-align: center;
 }
@@ -42,12 +49,12 @@ h2, section {
   border-top-color:transparent;
   border-right-color:transparent;
   border-bottom-color:transparent;
-  border-left-color:green;
+  border-left-color:black;
   /* the opposite of the pointing direction */
-  border-top-width:.6rem;
-  border-right-width:.6rem;
-  border-bottom-width:.6rem;
-  border-left-width:.6rem;
+  border-top-width:1.6rem;
+  border-right-width:2.6rem;
+  border-bottom-width:1.6rem;
+  border-left-width:1.6rem;
   border-style:solid;
 }
 
