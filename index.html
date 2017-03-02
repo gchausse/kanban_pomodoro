@@ -72,11 +72,17 @@
                     $(this).addClass("selected");
                 });
                 $("#start").click(function(){
-                    console.log($('#doingtasks li'));
                     if($('#doingtasks li').length < 1){
-                        $("<li></li>").appendTo($('#doingtasks')).html($(".selected").html());
+                        $(".selected").appendTo($('#doingtasks'));
+                        // $(".selected").remove();
                     }
-                })
+                    function timer(){
+                    }
+                    $("#timer").setinterval()
+
+                });
+
+
 
 
             })
