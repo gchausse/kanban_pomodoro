@@ -47,12 +47,15 @@ section {
     min-height: 4em;
 }
 
-#start, #pause {
+#start, #pause , #resume {
     text-transform: capitalize;
     margin-top: 2em;
     min-width: 60%;
     align-self: center;
     min-height: 3em;
+}
+#resume {
+    display: none;
 }
 .task{
     margin: 0;

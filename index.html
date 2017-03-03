@@ -39,6 +39,7 @@
                         <div id="timer"></div>
                         <button id="start">début</button>
                         <button id="pause">pause</button>
+                        <button id="resume">reprendre</button>
                         <ul id="doingtasks"></ul>
                     </section>
                 </div>
@@ -98,24 +99,27 @@
                         }else{
                             $("#timer").text(min + ":" + sec);
                         }
-                        $("#pause").mousedown(function(){
-                            pause++;
-                            console.log(pause);
-                            if($("#pause").html() == $("#pause").html("pause")){
-                                var pauseTime = $("#timer").text();
-                                window.clearInterval(counter);
-                                $("#timer").text(pauseTime);
-                                $("#pause").html("Reprendre");
-                            }else if ($("#pause").html() == $("#pause").html("Reprendre")){
-                                counter = setInterval(timer, 1000);
-
-                            }
-                        })
                     }
+                    $("#pause").click(function(){
+                        var pauseTime = $("#timer").text();
+                        window.clearInterval(counter);
+                        $("#timer").text(pauseTime);
+                        $("#pause").css("display", "none");
+                        $("#resume").css("display", "block");
+                    })
+                    $("#resume").click(function(){
+                        $("#resume").css("display", "none");
+                        $("#pause").css("display", "block");
+                        counter = setInterval(timer, 1000);
+                    })
 
 
                 });
 
+                // }else if ($("#pause").html() == $("#pause").html("Reprendre")){
+                //     counter = setInterval(timer, 1000);
+                //
+                // }
 
 
 
