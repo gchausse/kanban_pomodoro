@@ -59,6 +59,10 @@
         <script src="./static/external/js/script.js"></script>
         <script>
         $(document).ready(function() {
+            var min = 25;
+            var sec =00;
+            var pause  =0;
+
             $(".task").remove();
 
             $("#add").click(function(){
@@ -74,11 +78,41 @@
                 $("#start").click(function(){
                     if($('#doingtasks li').length < 1){
                         $(".selected").appendTo($('#doingtasks'));
+                        var counter = setInterval(timer, 1000);
+
                         // $(".selected").remove();
                     }
                     function timer(){
+                        sec--;
+                        if(sec < 0){
+                            sec = 59;
+                            min--;
+                        }
+                        if (sec < 10 && min > 9) {
+                            $("#timer").text(min + ":0" + sec);
+                        }else if( min < 10 && sec >9 ){
+                            $("#timer").text("0" + min + ":" + sec);
+                        }
+                        else if (sec < 10 && min < 10) {
+                            $("#timer").text("0" + min + ":0" + sec);
+                        }else{
+                            $("#timer").text(min + ":" + sec);
+                        }
+                        $("#pause").mousedown(function(){
+                            pause++;
+                            console.log(pause);
+                            if($("#pause").html() == $("#pause").html("pause")){
+                                var pauseTime = $("#timer").text();
+                                window.clearInterval(counter);
+                                $("#timer").text(pauseTime);
+                                $("#pause").html("Reprendre");
+                            }else if ($("#pause").html() == $("#pause").html("Reprendre")){
+                                counter = setInterval(timer, 1000);
+
+                            }
+                        })
                     }
-                    $("#timer").setinterval()
+
 
                 });
 
