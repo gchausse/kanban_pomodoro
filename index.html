@@ -40,6 +40,7 @@
                         <button id="start">début</button>
                         <button id="pause">pause</button>
                         <button id="resume">reprendre</button>
+                        <button type="button" name="button" id="finish">fini</button>
                         <ul id="doingtasks"></ul>
                     </section>
                 </div>
@@ -60,9 +61,10 @@
         <script src="./static/external/js/script.js"></script>
         <script>
         $(document).ready(function() {
-            var min = 25;
-            var sec =00;
-            var pause  =0;
+            var min = 0;
+            var sec = 10;
+            var pause  = 0;
+            var counter = null;
 
             $(".task").remove();
 
@@ -76,13 +78,18 @@
                     $(".selected").removeClass("selected");
                     $(this).addClass("selected");
                 });
-                $("#start").click(function(){
-                    if($('#doingtasks li').length < 1){
-                        $(".selected").appendTo($('#doingtasks'));
-                        var counter = setInterval(timer, 1000);
+            })
 
-                        // $(".selected").remove();
-                    }
+            $("#start").click(function(){
+                if($('#doingtasks li').length < 1){
+                    $(".selected").appendTo($('#doingtasks'));
+                    console.log($("#timer").text());
+
+                }
+                if($(".selected").length > 0 && $("#timer").text() == ""){
+
+                    counter = setInterval(timer, 1000);
+
                     function timer(){
                         sec--;
                         if(sec < 0){
@@ -99,31 +106,47 @@
                         }else{
                             $("#timer").text(min + ":" + sec);
                         }
+                        if(sec <= 0 && min <= 0){
+                            var reponsepopup = confirm("Votre Tache est-elle terminée ?")
+                            if(reponsepopup){
+                                $(".selected").appendTo($('#donetasks'));
+                                $("#timer").text("");
+                                clearInterval(counter);
+                                $(".selected").removeClass("selected");
+                            }else if (!reponsepopup) {
+                                min = 0;
+                                sec = 10;
+                            }
+
+                        }
                     }
                     $("#pause").click(function(){
                         var pauseTime = $("#timer").text();
-                        window.clearInterval(counter);
                         $("#timer").text(pauseTime);
                         $("#pause").css("display", "none");
                         $("#resume").css("display", "block");
+                        clearInterval(counter);
                     })
                     $("#resume").click(function(){
                         $("#resume").css("display", "none");
                         $("#pause").css("display", "block");
                         counter = setInterval(timer, 1000);
+
                     })
+                    $("#finish").click(function(){
+                        var tempspassmin = parseInt(24 - min);
+                        var tempspasssec = parseInt(60-sec);
+                        $(".selected").text($(".selected").text() +": " + tempspassmin + "min " + tempspasssec + "sec");
+                        $(".selected").appendTo($('#donetasks'));
+                        $(".selected").removeClass("selected");
+                        clearInterval(counter);
+                        $("#timer").text("");
+                        min = 25;
+                        sec = 00;
 
-
-                });
-
-                // }else if ($("#pause").html() == $("#pause").html("Reprendre")){
-                //     counter = setInterval(timer, 1000);
-                //
-                // }
-
-
-
-            })
+                    })
+                }
+            });
         });
 
 

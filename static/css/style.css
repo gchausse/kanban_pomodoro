@@ -39,7 +39,7 @@ section {
 
 }
 
-#todo .task{
+li{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -47,7 +47,7 @@ section {
     min-height: 4em;
 }
 
-#start, #pause , #resume {
+#start, #pause , #resume, #finish {
     text-transform: capitalize;
     margin-top: 2em;
     min-width: 60%;
@@ -84,6 +84,7 @@ li {
 }
  .task:active {
     background-color: #e6e6e6;
+
  }
 
 input, button {
@@ -97,4 +98,15 @@ input, button {
 }
 .selected {
     background-color: #e6e6e6;
+}
+#timer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ul{
+    padding-left: 0;
+}
+#doing .selected{
+        border: 3px solid red;
 }
